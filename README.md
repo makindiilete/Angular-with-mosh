@@ -1,2 +1,2 @@
 # Angular-with-mosh
-Angular 4 tutorial with Mosh
+This contains the oshop project of the angular 4 mosh hamedani tutorials
