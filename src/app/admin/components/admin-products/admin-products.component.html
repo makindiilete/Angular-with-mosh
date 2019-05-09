@@ -1,0 +1,50 @@
+<p>
+  <a routerLink="/admin/products/new" class="btn btn-primary">New Product</a>
+</p>
+<p>
+  <input
+    #query
+    type="text"
+    class="form-control"
+    placeholder="Search..."
+    (keyup)="filter(query.value)"
+  />
+</p>
+
+<!--  items - the products or rows in the current page, itemCount - total number of items displayed below the table and it is also used to calc the number of pages, reload - when current page or sort order changes, this event is raised -->
+<data-table
+  [items]="items"
+  [itemCount]="itemCount"
+  (reload)="reloadItems($event)"
+>
+  <!--  Title column-->
+  <!--  Property - properties in the json object we want to display here-->
+  <data-table-column
+    [property]="'title'"
+    [header]="'Title'"
+    [sortable]="true"
+    [resizable]="true"
+  >
+  </data-table-column>
+  <!--  Price column-->
+  <data-table-column
+    [property]="'price'"
+    [header]="'Price'"
+    [sortable]="true"
+    [resizable]="true"
+  >
+    <!--    defining a template var for a data table cell, we set an attribute 'let-item' with which we can get a refrence to the current row or the current product and we store it in a variable 'product' and we bind string interpolation to this variable 'item.price'-->
+    <ng-template #dataTableCell let-item="item">
+      {{ item.price | currency: "USD":true }}
+    </ng-template>
+  </data-table-column>
+  <!--  Edit column-->
+  <data-table-column [property]="'$key'">
+    <!--    We want to render an edit link-->
+    <ng-template #dataTableCell let-item="item">
+      <a [routerLink]="['/admin/products/', item.$key]">Edit</a>
+    </ng-template>
+  </data-table-column>
+</data-table>
+<br />
+<br />

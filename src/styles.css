@@ -1,0 +1,164 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~font-awesome/css/font-awesome.css";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "bootstrap.css";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+#main {
+  min-height: 100%;
+  position: relative;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #1c1e26;
+  border-top: 3px solid #d10024;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #ececf6 !important;
+}
+
+.navbar-toggler {
+  color: #ececf6 !important;
+}
+
+.navbar-dark[_ngcontent-c1] .navbar-brand[_ngcontent-c1] {
+  color: #d10024;
+}
+
+.bg-dark[_ngcontent-c1] {
+  background-color: #15161d !important;
+  border-bottom: 3px solid #d10024;
+}
+
+.badge-warning[_ngcontent-c1] {
+  color: #ececed;
+  background-color: #d10024;
+}
+
+.btn {
+  border-radius: 0px;
+}
+
+.list-group-item.active {
+  z-index: 2;
+  color: #fff;
+  background-color: #d10024;
+  border-color: #d10024;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #ececed;
+  text-align: left;
+  list-style: none;
+  background-color: #15161d;
+  background-clip: padding-box;
+  border: 1px solid #d10024;
+  border-radius: 0.35rem;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #ececed;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #ececed;
+  text-decoration: none;
+  background-color: #d10024;
+}
+.clear-shopping-cart {
+  border-radius: 40px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #d10024;
+  border-color: #d10024;
+  border-radius: 40px;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #d10024;
+  border-color: #d10024;
+  opacity: 0.8;
+}
+.btn-primary:focus,
+.btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem #d10024;
+}
+.btn-primary.disabled,
+.btn-primary:disabled {
+  color: #fff;
+  background-color: #d10024;
+  border-color: #d10024;
+}
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #d10024;
+  border-color: #d10024;
+}
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem #d10024;
+}
+
+.shopping-cart-body {
+  padding: 0px;
+}
+
+.form-control:focus {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #495057;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+}
+
+/*.form-control:focus {
+  border-color: #d10024;
+}*/

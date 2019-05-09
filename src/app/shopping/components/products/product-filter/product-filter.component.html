@@ -1,0 +1,22 @@
+<!--the sticky-top here makes the category list sticks-->
+<div class="sticky-top">
+  <div class="list-group mb-3">
+    <!--      this will display all products if the we dont have a selected category and it takes the user to the homepage-->
+    <a
+      class="list-group-item list-group-item-action"
+      [class.active]="!category"
+      routerLink="/"
+      >All Categories</a
+    >
+    <!--      this will filter products by category-->
+    <a
+      *ngFor="let c of categories$ | async"
+      class="list-group-item list-group-item-action"
+      routerLink="/"
+      [queryParams]="{ category: c.$key }"
+      [class.active]="category === c.$key"
+    >
+      {{ c.name }}
+    </a>
+  </div>
+</div>

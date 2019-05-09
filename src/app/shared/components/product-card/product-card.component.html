@@ -1,0 +1,28 @@
+<div *ngIf="product.title" class="card ">
+  <img
+    class="card-img-top"
+    [src]="product.imageUrl"
+    alt="{{ product.title }}"
+    *ngIf="product.imageUrl"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ product.title }}</h5>
+  </div>
+  <!--  we change the ngIf to ensure our shopping cart is defined-->
+  <div class="card-footer" *ngIf="showActions && shoppingCart">
+    <button
+      (click)="addToCart()"
+      class="btn btn-light btn-block"
+      *ngIf="shoppingCart.getQuantity(product) === 0; else updateQuantity"
+    >
+      <i class="fas fa-cart-plus"></i> Add to Cart
+    </button>
+    <!--    we removed the calc buttons here to a separate component and put their selectors here with props-->
+    <ng-template #updateQuantity>
+      <product-quantity
+        [product]="product"
+        [shopping-cart]="shoppingCart"
+      ></product-quantity
+    ></ng-template>
+  </div>
+</div>

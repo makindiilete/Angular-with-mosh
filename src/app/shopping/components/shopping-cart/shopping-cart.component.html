@@ -1,0 +1,76 @@
+<h1>Shopping Cart</h1>
+<div *ngIf="cart$ | async as cart" class="row">
+  <div class="col-md-10">
+    <div class="card">
+      <div class="card-header mt-2">
+        <p>
+          You have {{ cart.totalItemsCount }} items in your shopping cart.
+          <!--  clear cart button-->
+          <button
+            *ngIf="cart.items.length"
+            class="btn btn-light btn-sm float-md-right clear-shopping-cart"
+            (click)="clearCart()"
+          >
+            <i class="fas fa-trash-alt"></i> Clear Shopping Cart
+          </button>
+        </p>
+      </div>
+      <div class="card-body shopping-cart-body">
+        <table class="table table-responsive-sm">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Product</th>
+              <th style="width: 230px;" class="text-center">Quantity</th>
+              <th style="width: 200px;" class="text-right">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cart.items">
+              <td>
+                <div>
+                  <img
+                    [style.backgroundImage]="'url(' + item.imageUrl + ')'"
+                    class="thumbnail"
+                  />
+                </div>
+              </td>
+              <td>{{ item.title }}</td>
+              <td>
+                <product-quantity
+                  [product]="item"
+                  [shopping-cart]="cart"
+                ></product-quantity>
+              </td>
+              <td class="text-right">
+                {{ item.totalPrice | currency: "USD":true }}
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th class="text-right">
+                {{ cart.totalPrice | currency: "USD":true }}
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="card-footer">
+        <!--  checkout button : - ngIf to only show this if we have an item n the shopping cart. we change the tag from button to anchor and added a routerlink to take users to checkout page-->
+        <a
+          routerLink="/check-out"
+          *ngIf="cart.items.length"
+          class="btn btn-primary btn-sm"
+        >
+          Check Out <i class="fas fa-arrow-alt-circle-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<br />
