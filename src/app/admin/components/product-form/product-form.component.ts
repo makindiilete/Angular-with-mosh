@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import "rxjs/add/operator/take"; // import this for the shortcut to unsubscribe : - With the 'take', we can take only one item from our observable and the observable will be complete, we wont need to unsubscribe
 import { ProductService } from "../../../shared/services/product.service";
 import { CategoryService } from "../../../shared/services/category.service";
-import { Product } from "../../../shared/models/product";
+import { ProductForm } from "../../../shared/models/product-form";
 
 @Component({
   selector: "app-product-form",
@@ -12,7 +12,7 @@ import { Product } from "../../../shared/models/product";
 })
 export class ProductFormComponent {
   categories$;
-  product: Product;
+  product = new ProductForm("", "", "", "");
   id;
 
   // inject the angular router

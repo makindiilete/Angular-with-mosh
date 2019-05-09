@@ -2,18 +2,15 @@
   <div class="form-group">
     <label for="">Name</label>
     <input
-      #firstName="ngModel"
-      name="firstName"
-      [(ngModel)]="shipping.firstName"
+      #name="ngModel"
+      name="name"
+      [(ngModel)]="shipping.name"
       type="text"
       class="form-control"
       required
     />
-    <div
-      class="alert alert-danger"
-      *ngIf="firstName.touched && firstName.invalid"
-    >
-      <div *ngIf="firstName?.errors.required">Name is required.</div>
+    <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+      <div *ngIf="name.errors.required">Name is required.</div>
     </div>
   </div>
   <div class="form-group">
@@ -31,7 +28,7 @@
       class="alert alert-danger"
       *ngIf="addressLine1.touched && addressLine1.invalid"
     >
-      <div *ngIf="addressLine1?.errors.required">
+      <div *ngIf="addressLine1.errors.required">
         Address Line 1 is required.
       </div>
     </div>
@@ -51,7 +48,7 @@
       class="alert alert-danger"
       *ngIf="addressLine2.touched && addressLine2.invalid"
     >
-      <div *ngIf="addressLine2?.errors.required">
+      <div *ngIf="addressLine2.errors.required">
         Address Line 2 is required.
       </div>
     </div>

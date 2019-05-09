@@ -36,8 +36,8 @@
           />
         </div>
         <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
-          <div *ngIf="price.errors.required">Price is required.</div>
-          <div *ngIf="price.errors.min">Price should be 0 or higher</div>
+          <div *ngIf="price?.errors.required">Price is required.</div>
+          <div *ngIf="price?.errors.min">Price should be 0 or higher</div>
         </div>
       </div>
 
@@ -80,12 +80,17 @@
           class="alert alert-danger"
           *ngIf="imageUrl.touched && imageUrl.invalid"
         >
-          <div *ngIf="imageUrl.errors.required">ImageUrl is required.</div>
-          <div *ngIf="imageUrl.errors.url">Please enter a valid URL.</div>
+          <div *ngIf="imageUrl?.errors.required">ImageUrl is required.</div>
+          <div *ngIf="imageUrl?.errors.url">Please enter a valid URL.</div>
         </div>
       </div>
-      <button class="btn btn-primary">Save</button>
-      <button type="button" class="btn btn-danger" (click)="delete()">
+      <button class="btn btn-primary" [disabled]="!f.valid">Save</button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="delete()"
+        [disabled]="!f.valid"
+      >
         Delete
       </button>
     </form>
