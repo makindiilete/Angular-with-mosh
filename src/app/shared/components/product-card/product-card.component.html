@@ -1,28 +1,28 @@
-<div *ngIf="product.title" class="card ">
+<div *ngIf="product.title" class="card mb-3">
   <img
-    class="card-img-top"
+    class="card-img-top product-card-img"
     [src]="product.imageUrl"
     alt="{{ product.title }}"
-    *ngIf="product.imageUrl"
+    *ngIf="product.imageUrl && product.status === 'In Stock'; else opacity"
   />
+  <ng-template #opacity>
+    <img
+      class="card-img-top product-card-img"
+      [src]="product.imageUrl"
+      alt="{{ product.title }}"
+      style="opacity: 0.3"
+    />
+  </ng-template>
   <div class="card-body">
     <h5 class="card-title">{{ product.title }}</h5>
-  </div>
-  <!--  we change the ngIf to ensure our shopping cart is defined-->
-  <div class="card-footer" *ngIf="showActions && shoppingCart">
-    <button
-      (click)="addToCart()"
-      class="btn btn-light btn-block"
-      *ngIf="shoppingCart.getQuantity(product) === 0; else updateQuantity"
-    >
-      <i class="fas fa-cart-plus"></i> Add to Cart
-    </button>
-    <!--    we removed the calc buttons here to a separate component and put their selectors here with props-->
-    <ng-template #updateQuantity>
-      <product-quantity
-        [product]="product"
-        [shopping-cart]="shoppingCart"
-      ></product-quantity
-    ></ng-template>
+    <h6 class="card-title">{{ product.price | currency: "USD":true }}</h6>
+    <h6 class="text-success" *ngIf="product.status === 'In Stock'; else danger">
+      {{ product.status }}
+    </h6>
+    <ng-template #danger>
+      <h6 class="text-danger" *ngIf="product.status === 'Out Of Stock'">
+        {{ product.status }}
+      </h6>
+    </ng-template>
   </div>
 </div>

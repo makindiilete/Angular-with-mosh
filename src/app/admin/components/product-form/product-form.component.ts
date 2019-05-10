@@ -4,6 +4,7 @@ import "rxjs/add/operator/take"; // import this for the shortcut to unsubscribe 
 import { ProductService } from "../../../shared/services/product.service";
 import { CategoryService } from "../../../shared/services/category.service";
 import { ProductForm } from "../../../shared/models/product-form";
+import { StatusService } from "../../../shared/services/status.service";
 
 @Component({
   selector: "app-product-form",
@@ -12,17 +13,20 @@ import { ProductForm } from "../../../shared/models/product-form";
 })
 export class ProductFormComponent {
   categories$;
-  product = new ProductForm("", "", "", "");
+  status$;
+  product = new ProductForm("", "", "", "", "");
   id;
 
   // inject the angular router
   constructor(
     private categoryService: CategoryService,
+    private statusService: StatusService,
     private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute
   ) {
     this.categories$ = categoryService.getAll();
+    this.status$ = statusService.getAll();
 
     //  here we want to read the id route parameter
     this.id = this.route.snapshot.paramMap.get("id");

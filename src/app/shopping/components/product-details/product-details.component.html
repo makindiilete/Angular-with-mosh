@@ -1,0 +1,41 @@
+<div class="row title-row mb-3">
+  <div class="col-md-5">
+    <h1>{{ product.title }}</h1>
+  </div>
+  <div class="col-md-7"></div>
+</div>
+
+<img [src]="product.imageUrl" class="w-25 h-25" />
+
+<b>
+  <p>{{ product.price | currency: "USD":true }}</p>
+</b>
+<p
+  class="stock in-stock text-success"
+  *ngIf="product.status === 'In Stock'; else stockOut"
+>
+  <label>Status:</label> {{ product.status }}
+</p>
+<ng-template #stockOut>
+  <p class="stock in-stock text-danger">
+    <label>Status:</label> {{ product.status }}
+  </p>
+</ng-template>
+<p>
+  Category:
+  <b>
+    <i class="fas fa-leaf" style="color: #b21f2d"></i> {{ product.category }}</b
+  >
+</p>
+<button
+  class="btn btn-primary"
+  (click)="addToCart()"
+  *ngIf="product.status === 'In Stock'; else danger"
+>
+  Add to cart
+</button>
+<ng-template #danger>
+  <button class="btn btn-primary" (click)="addToCart()" hidden>
+    Add to cart
+  </button>
+</ng-template>

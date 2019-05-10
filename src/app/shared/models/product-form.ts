@@ -3,6 +3,7 @@ export class ProductForm {
     public title: string,
     public price: string,
     public category: string,
-    public imageUrl: string
+    public imageUrl: string,
+    public status: string
   ) {}
 }

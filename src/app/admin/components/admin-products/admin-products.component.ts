@@ -15,8 +15,11 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   tableResource: DataTableResource<Product>; // for our data table
   items: Product[] = [];
   itemCount: number;
+  loading: boolean;
 
   constructor(private productService: ProductService) {
+    // console.log("Loading");
+    this.loading = true;
     this.subscription = this.productService.getAll().subscribe(products => {
       this.products = products;
       this.initializeTable(products);
@@ -24,6 +27,7 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   }
 
   private initializeTable(products: Product[]) {
+    // console.log("loading");
     // we want to pass the result of our products to the table resource
     this.tableResource = new DataTableResource(products);
     // we use this to get all the records for the current page based on the current parameter
@@ -36,7 +40,8 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     this.tableResource
       .count()
       // we ref ds in our template
-      .then(count => (this.itemCount = count));
+      .then(count => ((this.itemCount = count), (this.loading = false)));
+    // console.log("Loaded");
   }
 
   // our reloadItems method
@@ -56,8 +61,9 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     this.initializeTable(filteredProducts);
   }
 
+  ngOnInit() {}
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-  ngOnInit() {}
 }

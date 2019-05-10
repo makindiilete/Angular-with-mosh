@@ -11,12 +11,19 @@ import { ShoppingModule } from "./shopping/shopping.module";
 import { CoreModule } from "./core/core.module";
 import { LoginComponent } from "./core/components/login/login.component";
 import { FooterComponent } from "./core/components/footer/footer.component";
-import { OutOfStockComponent } from "./core/components/out-of-stock/out-of-stock.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, OutOfStockComponent],
+  declarations: [AppComponent, FooterComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      progressBar: true,
+      progressAnimation: "decreasing"
+    }),
     SharedModule,
     AdminModule,
     ShoppingModule,

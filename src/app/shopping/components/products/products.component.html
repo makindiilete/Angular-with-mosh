@@ -1,5 +1,8 @@
+<div *ngIf="loading">
+  <spinner></spinner>
+</div>
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 mb-3">
     <product-filter [category]="category"></product-filter>
   </div>
   <div class="col-md-9">
@@ -7,7 +10,12 @@
       <ng-container *ngFor="let p of filteredProducts; let i = index">
         <div class="col">
           <!--          here we passing a props shopping-cart to the product-card component-->
-          <product-card [product]="p" [shopping-cart]="cart"></product-card>
+          <product-card
+            [routerLink]="['/products/details/', p.$key]"
+            style="cursor: pointer"
+            [product]="p"
+            [shopping-cart]="cart"
+          ></product-card>
         </div>
         <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
       </ng-container>

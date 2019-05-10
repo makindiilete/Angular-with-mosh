@@ -1,0 +1,11 @@
+.title-row {
+  border-bottom: 1px solid rgba(131, 131, 131, 0.77);
+}
+p.stock label {
+  color: #000;
+  padding-right: 5px;
+  font-weight: 400;
+}
+/*p.stock.in-stock {*/
+/*color: #8bc500;*/
+/*}*/

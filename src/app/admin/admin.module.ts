@@ -6,12 +6,14 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from '../shared/services/auth-guard.service';
 import { SharedModule } from '../shared/shared.module';
+import { AdminSpinnerComponent } from './components/admin-spinner/admin-spinner.component';
 
 @NgModule({
   declarations: [
     AdminProductsComponent,
     AdminOrdersComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    AdminSpinnerComponent
   ],
   imports: [
     SharedModule,
