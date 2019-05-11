@@ -1,6 +1,6 @@
-.title-row {
+/*.title-row {
   border-bottom: 1px solid rgba(131, 131, 131, 0.77);
-}
+}*/
 p.stock label {
   color: #000;
   padding-right: 5px;
@@ -9,3 +9,12 @@ p.stock label {
 /*p.stock.in-stock {*/
 /*color: #8bc500;*/
 /*}*/
+
+/* Media query for screens greater than 576px, tablets and desktop */
+/* Anything we hide here will be hidden on tablets and desktops */
+/* Anything we show here will be shown on tablets and desktops */
+@media screen and (min-width: 576px) {
+  #icon-mobile {
+    display: none;
+  }
+}

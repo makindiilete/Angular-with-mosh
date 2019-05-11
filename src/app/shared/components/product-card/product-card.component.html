@@ -16,11 +16,14 @@
   <div class="card-body">
     <h5 class="card-title">{{ product.title }}</h5>
     <h6 class="card-title">{{ product.price | currency: "USD":true }}</h6>
-    <h6 class="text-success" *ngIf="product.status === 'In Stock'; else danger">
+    <h6
+      class="text-success status"
+      *ngIf="product.status === 'In Stock'; else danger"
+    >
       {{ product.status }}
     </h6>
     <ng-template #danger>
-      <h6 class="text-danger" *ngIf="product.status === 'Out Of Stock'">
+      <h6 class="text-danger status" *ngIf="product.status === 'Out Of Stock'">
         {{ product.status }}
       </h6>
     </ng-template>

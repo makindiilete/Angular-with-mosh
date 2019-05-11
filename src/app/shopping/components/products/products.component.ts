@@ -6,7 +6,6 @@ import { Product } from "../../../shared/models/product";
 import { ShoppingCart } from "../../../shared/models/shopping-cart";
 import { ProductService } from "../../../shared/services/product.service";
 import { ShoppingCartService } from "../../../shared/services/shopping-cart.service";
-import { Ng4LoadingSpinnerService } from "ng4-loading-spinner";
 
 @Component({
   selector: "app-products",

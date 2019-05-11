@@ -1,9 +1,45 @@
 <div class="row title-row mb-3">
-  <div class="col-md-5">
-    <h1>{{ product.title }}</h1>
+  <div class="col-md-12">
+    <h1>
+      {{ product.title }}
+      <a href="https://facebook.com">
+        <img
+          src="../../../../assets/icons/fb1.png"
+          alt="Facebook"
+          style="width: 40px; height: 40px;"
+          class="float-md-right mr-2 d-none d-md-block"
+        />
+      </a>
+      <a href="https://twitter.com">
+        <img
+          src="../../../../assets/icons/twitter2.png"
+          alt="Twitter"
+          style="width: 40px; height: 40px;"
+          class="float-md-right mr-2 d-none d-md-block"
+        />
+      </a>
+      <a href="https://pinterest.com">
+        <img
+          src="../../../../assets/icons/pin-interest.png"
+          alt="Twitter"
+          style="width: 40px; height: 40px;"
+          class="float-md-right mr-2 d-none d-md-block"
+        />
+      </a>
+      <a href="https://youtube.com">
+        <img
+          src="../../../../assets/icons/youtube.png"
+          alt="Twitter"
+          style="width: 40px; height: 40px;"
+          class="float-md-right mr-2 d-none d-md-block"
+        />
+      </a>
+    </h1>
   </div>
-  <div class="col-md-7"></div>
 </div>
+<hr />
+
+<!--<div class="col-md-7"></div>-->
 
 <img [src]="product.imageUrl" class="w-25 h-25" />
 
@@ -39,3 +75,38 @@
     Add to cart
   </button>
 </ng-template>
+<div id="icon-mobile" class="mb-5">
+  <hr />
+  <a href="https://facebook.com">
+    <img
+      src="../../../../assets/icons/fb1.png"
+      alt="Facebook"
+      style="width: 40px; height: 40px;"
+      class=" mr-2"
+    />
+  </a>
+  <a href="https://twitter.com">
+    <img
+      src="../../../../assets/icons/twitter2.png"
+      alt="Twitter"
+      style="width: 40px; height: 40px;"
+      class=" mr-2"
+    />
+  </a>
+  <a href="https://pinterest.com">
+    <img
+      src="../../../../assets/icons/pin-interest.png"
+      alt="Twitter"
+      style="width: 40px; height: 40px;"
+      class=" mr-2"
+    />
+  </a>
+  <a href="https://youtube.com">
+    <img
+      src="../../../../assets/icons/youtube.png"
+      alt="Twitter"
+      style="width: 40px; height: 40px;"
+      class=" mr-2"
+    />
+  </a>
+</div>
